@@ -27,7 +27,7 @@ int main(int argc, char** argv)
     {
         string password = Generator::GetPassword(list<TypeSet>{ Random::LowerTypeSet, Random::UpperTypeSet, Random::NumberTypeSet, Random::SymbolTypeSet }, length);
 
-        cout << password << "\n";
+        cout << "\n" << password << "\n\n";
 
         if(ArgumentParser::AllowClipboard())
             Clipboard::FromString(password);
@@ -55,7 +55,7 @@ int main(int argc, char** argv)
 
         string password = Generator::GetPassword(typeSets, length);
 
-        cout << password << "\n";
+        cout << "\n" << password << "\n\n";
 
         if (ArgumentParser::AllowClipboard())
             Clipboard::FromString(password);

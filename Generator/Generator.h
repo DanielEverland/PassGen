@@ -12,5 +12,8 @@ public:
 	static void InitializeSeed();
 
 	static string GetPassword(list<Random::TypeSet> list, int length);
+
+private:
 	static unsigned int GetEpochSeed();
+	static void OutputOptions(list<Random::TypeSet> list);
 };

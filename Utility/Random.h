@@ -43,8 +43,10 @@ public:
 	class TypeSet
 	{
 	public:
-		TypeSet(initializer_list<CharacterTypeInterval> initList)
+		TypeSet(string name, initializer_list<CharacterTypeInterval> initList)
 		{
+			this->name = name;
+
 			auto iter = initList.begin();
 
 			while (iter != initList.end())
@@ -55,19 +57,24 @@ public:
 			}
 		}
 
-		CharacterTypeInterval operator[](int index)
+		CharacterTypeInterval operator[](int index) const
 		{
 			auto iter = list.begin();
 			std::advance(iter, index);
 
 			return *iter;
 		}
-		int Length()
+		int Length() const
 		{
 			return list.size();
+		}
+		string GetName() const
+		{
+			return name;
 		}
 
 	private:
 		list<CharacterTypeInterval> list;
+		string name;
 	};
 };
