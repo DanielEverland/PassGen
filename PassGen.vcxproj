@@ -127,6 +127,10 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(TargetDir)$(ProjectName).exe" "C:\PassGen\$(ProjectName).exe"
+copy /Y "$(TargetDir)$(ProjectName).obj" "C:\PassGen\$(ProjectName).obj"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -147,7 +151,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Generator\Generator.cpp" />
     <ClCompile Include="PassGen.cpp" />
+    <ClCompile Include="Utility\Random.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Generator\Generator.h" />
+    <ClInclude Include="Utility\Random.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
