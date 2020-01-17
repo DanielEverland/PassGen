@@ -12,6 +12,7 @@ public:
 	static bool IsHelp();
 	static bool IsConfigured();
 	static bool IsDefault();
+	static bool AllowClipboard();
 	static bool HasNumber();
 	static bool HasLowercase();
 	static bool HasUppercase();
@@ -23,6 +24,9 @@ private:
 	static char** arguments;
 	static int Flags;
 	static unsigned int Length;
+
+	static bool IsArgumentDisableClipboard(string arg);
+	static void SetFlagDisableClipboard();
 
 	static bool IsArgumentHelp(string arg);
 	static void SetFlagHelp();

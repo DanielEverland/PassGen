@@ -1,6 +1,7 @@
 #include <chrono>
 #include <climits>
 #include <list>
+#include <iostream>
 
 #include "Generator.h"
 

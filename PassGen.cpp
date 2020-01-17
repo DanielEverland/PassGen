@@ -29,7 +29,8 @@ int main(int argc, char** argv)
 
         cout << password << "\n";
 
-        Clipboard::FromString(password);
+        if(ArgumentParser::AllowClipboard())
+            Clipboard::FromString(password);
     }
     else if (ArgumentParser::IsConfigured())
     {
@@ -56,7 +57,8 @@ int main(int argc, char** argv)
 
         cout << password << "\n";
 
-        Clipboard::FromString(password);
+        if (ArgumentParser::AllowClipboard())
+            Clipboard::FromString(password);
     }
     else if (ArgumentParser::IsHelp())
     {

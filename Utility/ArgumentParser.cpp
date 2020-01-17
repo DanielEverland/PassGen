@@ -14,9 +14,9 @@ void ArgumentParser::Initialize(int argc, char** argv)
 	ArgumentParser::amountOfArguments = argc;
 	ArgumentParser::arguments = argv;
 
-	for (int i = 1; i < amountOfArguments; i++)
+	for (int i = 0; i < amountOfArguments; i++)
 	{
-		std::cout << argv[i] << "\n";
+		string arg = argv[i];
 
 		if (IsArgumentHelp(arguments[i]))
 		{
@@ -37,6 +37,10 @@ void ArgumentParser::Initialize(int argc, char** argv)
 		if (IsArgumentSymbol(arguments[i]))
 		{
 			SetFlagSymbol();
+		}
+		if (IsArgumentDisableClipboard(arguments[i]))
+		{
+			SetFlagDisableClipboard();
 		}
 		if (IsArgumentLength(arguments[i]))
 		{
@@ -65,6 +69,11 @@ bool ArgumentParser::HasSymbol()
 	return Flags & 1 << 4;
 }
 
+bool ArgumentParser::AllowClipboard()
+{
+	return !(Flags & 1 << 5);
+}
+
 bool ArgumentParser::IsHelp()
 {
 	return Flags & 1 << 0;
@@ -72,12 +81,12 @@ bool ArgumentParser::IsHelp()
 
 bool ArgumentParser::IsConfigured()
 {
-	return (Flags & 1 << 0) == 0 && Flags != 0;
+	return HasNumber() || HasLowercase() || HasUppercase() || HasSymbol();
 }
 
 bool ArgumentParser::IsDefault()
 {
-	return Flags == 0;
+	return !IsConfigured();
 }
 
 unsigned int ArgumentParser::GetLength()
@@ -149,4 +158,14 @@ bool ArgumentParser::IsArgumentLength(string arg)
 void ArgumentParser::SetLength(string arg)
 {
 	Length = std::stoi(arg);
+}
+
+bool ArgumentParser::IsArgumentDisableClipboard(string arg)
+{
+	return arg == "-c";
+}
+
+void ArgumentParser::SetFlagDisableClipboard()
+{
+	Flags |= 1 << 5;
 }
