@@ -18,15 +18,9 @@ void Generator::InitializeSeed()
 	srand(GetEpochSeed());
 }
 
-string Generator::GetPassword()
+string Generator::GetPassword(list<TypeSet> list, int length)
 {
-	list<TypeSet> typeSets{ Random::LowerTypeSet, Random::UpperTypeSet, Random::NumberTypeSet, Random::SymbolTypeSet };
-
-	string text = Random::RandomStringFromTypeSets(typeSets, 100);
-
-	Clipboard::FromString(text);
-
-	return text;
+	return Random::RandomStringFromTypeSets(list, length);
 }
 
 unsigned int Generator::GetEpochSeed()

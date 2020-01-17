@@ -14,6 +14,7 @@ public:
 	struct CharacterTypeInterval;
 	class TypeSet;
 
+	static list<TypeSet> AllTypeSets;
 	static TypeSet UpperTypeSet;
 	static TypeSet LowerTypeSet;
 	static TypeSet NumberTypeSet;

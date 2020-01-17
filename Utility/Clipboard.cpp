@@ -1,5 +1,6 @@
 #include "Clipboard.h"
 
+#include <iostream>
 #include <Windows.h>
 
 void Clipboard::FromString(string text)
@@ -14,4 +15,6 @@ void Clipboard::FromString(string text)
 	EmptyClipboard();
 	SetClipboardData(CF_TEXT, memory);
 	CloseClipboard();
+
+	std::cout << "Copied to clipboard\n";
 }
