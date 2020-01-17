@@ -5,11 +5,12 @@
 using std::rand;
 
 typedef Random::CharacterTypeInterval Interval;
+typedef Random::TypeSet TypeSet;
 
-Random::TypeSet Random::UpperTypeSet = Random::TypeSet({ Interval(65, 90) });
-Random::TypeSet Random::LowerTypeSet = Random::TypeSet({ Interval(97, 122) });
-Random::TypeSet Random::NumberTypeSet = Random::TypeSet({ Interval(48, 57) });
-Random::TypeSet Random::SymbolTypeSet = Random::TypeSet({ Interval(33, 47), Interval(58, 64), Interval(91, 96), Interval(123, 126) });
+TypeSet Random::UpperTypeSet = TypeSet({ Interval(65, 90) });
+TypeSet Random::LowerTypeSet = TypeSet({ Interval(97, 122) });
+TypeSet Random::NumberTypeSet = TypeSet({ Interval(48, 57) });
+TypeSet Random::SymbolTypeSet = TypeSet({ Interval(33, 47), Interval(58, 64), Interval(91, 96), Interval(123, 126) });
 
 char Random::UpperCase()
 {
