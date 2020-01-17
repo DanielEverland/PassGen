@@ -15,5 +15,5 @@ public:
 
 private:
 	static unsigned int GetEpochSeed();
-	static void OutputOptions(list<Random::TypeSet> list);
+	static void OutputOptions(list<Random::TypeSet> list, int length);
 };

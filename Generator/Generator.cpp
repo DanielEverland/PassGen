@@ -2,6 +2,7 @@
 #include <climits>
 #include <list>
 #include <iostream>
+#include <string>
 
 #include "Generator.h"
 
@@ -25,7 +26,7 @@ string Generator::GetPassword(list<TypeSet> list, int length)
 	cout << "\n";
 	cout << "Generating Password" << "\n";
 
-	OutputOptions(list);
+	OutputOptions(list, length);
 
 	return Random::RandomStringFromTypeSets(list, length);
 }
@@ -37,7 +38,7 @@ unsigned int Generator::GetEpochSeed()
 	return unsigned int(ms.count() % UINT_MAX);
 }
 
-void Generator::OutputOptions(list<TypeSet> list)
+void Generator::OutputOptions(list<TypeSet> list, int length)
 {
 	cout << "Typesets: ";
 
@@ -50,4 +51,6 @@ void Generator::OutputOptions(list<TypeSet> list)
 	}
 
 	cout << "\n";
+
+	cout << "Length: " << std::to_string(length) << "\n";
 }
