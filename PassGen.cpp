@@ -5,7 +5,7 @@
 
 #include "Generator/Generator.h"
 
-int main()
+int main(int argc, char** argv)
 {
     Generator::InitializeSeed();
 

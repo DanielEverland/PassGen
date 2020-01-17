@@ -2,8 +2,10 @@
 
 #include <initializer_list>
 #include <list>
+#include <string>
 
 using std::initializer_list;
+using std::string;
 using std::list;
 
 class Random
@@ -17,6 +19,7 @@ public:
 	static TypeSet NumberTypeSet;
 	static TypeSet SymbolTypeSet;
 
+	static string RandomStringFromTypeSets(list<TypeSet> typeSets, int length);
 	static char UpperCase();
 	static char LowerCase();
 	static char Number();

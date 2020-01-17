@@ -1,11 +1,16 @@
 #include <chrono>
 #include <climits>
+#include <list>
 
 #include "Generator.h"
 
 #include "..\Utility\Random.h"
 
+typedef Random::TypeSet TypeSet;
+
 using namespace std::chrono;
+
+using std::list;
 
 void Generator::InitializeSeed()
 {
@@ -14,14 +19,9 @@ void Generator::InitializeSeed()
 
 string Generator::GetPassword()
 {
-	string text;
+	list<TypeSet> typeSets{ Random::LowerTypeSet, Random::UpperTypeSet, Random::NumberTypeSet, Random::SymbolTypeSet };
 
-	for (int i = 0; i < 100; i++)
-	{
-		text += Random::Symbol();
-	}
-
-	return text;
+	return Random::RandomStringFromTypeSets(typeSets, 100);
 }
 
 unsigned int Generator::GetEpochSeed()

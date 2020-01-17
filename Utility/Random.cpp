@@ -32,6 +32,27 @@ char Random::Symbol()
 	return RandomCharFromTypeSet(SymbolTypeSet);
 }
 
+string Random::RandomStringFromTypeSets(list<TypeSet> typeSets, int length)
+{
+	string text;
+	list<TypeSet>::iterator iter;
+	TypeSet* chosenTypeSet;
+	int chosenTypeSetIndex;
+	int interval;
+
+	for (int i = 0; i < length; i++)
+	{
+		chosenTypeSetIndex = rand() % typeSets.size();
+
+		iter = typeSets.begin();
+		std::advance(iter, chosenTypeSetIndex);
+
+		text += RandomCharFromTypeSet(*iter);
+	}
+
+	return text;
+}
+
 char Random::RandomCharFromTypeSet(TypeSet typeSet)
 {
 	int chosenTypeSetIndex = rand() % typeSet.Length();
