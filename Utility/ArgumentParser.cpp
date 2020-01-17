@@ -86,7 +86,7 @@ bool ArgumentParser::IsConfigured()
 
 bool ArgumentParser::IsDefault()
 {
-	return !IsConfigured();
+	return !IsConfigured() && !IsHelp() && (amountOfArguments <= 1 || Length != 0);
 }
 
 unsigned int ArgumentParser::GetLength()

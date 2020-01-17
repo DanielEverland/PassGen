@@ -14,6 +14,8 @@ typedef Random::TypeSet TypeSet;
 
 const int defaultLength = 100;
 
+void OutputHelp();
+
 int main(int argc, char** argv)
 {
     ArgumentParser::Initialize(argc, argv);
@@ -62,10 +64,26 @@ int main(int argc, char** argv)
     }
     else if (ArgumentParser::IsHelp())
     {
-        cout << "Help";
+        OutputHelp();
     }
     else
     {
         cout << "Argument not recognized";
+        OutputHelp();
     }
+}
+
+void OutputHelp()
+{
+    cout << "\n\n";
+    cout << "Any integer\tSets password length" << "\n";
+    cout << "-c\t\tDisables automatic copying to clipboard" << "\n";
+    cout << "\n";
+    cout << "Using any of the following options will change behaviour to opt-in" << "\n";
+    cout << "i.e. to only use numbers and symbols use \"-n -s\"" << "\n";
+    cout << "-n\t\tIncludes numbers" << "\n";
+    cout << "-s\t\tIncludes symbols" << "\n";
+    cout << "-u\t\tIncludes uppercase characters" << "\n";
+    cout << "-l\t\tIncludes lowecase characters" << "\n";
+    cout << "\n";
 }
