@@ -12,10 +12,16 @@ public:
 	struct CharacterTypeInterval;
 	class TypeSet;
 
-	static char UpperCase();
-	static char RandomCharFromTypeSet(TypeSet typeSet);
-
 	static TypeSet UpperTypeSet;
+	static TypeSet LowerTypeSet;
+	static TypeSet NumberTypeSet;
+	static TypeSet SymbolTypeSet;
+
+	static char UpperCase();
+	static char LowerCase();
+	static char Number();
+	static char Symbol();
+	static char RandomCharFromTypeSet(TypeSet typeSet);
 
 	struct CharacterTypeInterval
 	{

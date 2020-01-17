@@ -18,7 +18,7 @@ string Generator::GetPassword()
 
 	for (int i = 0; i < 100; i++)
 	{
-		text += Random::UpperCase();
+		text += Random::Symbol();
 	}
 
 	return text;
