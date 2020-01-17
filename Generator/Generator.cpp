@@ -5,6 +5,7 @@
 #include "Generator.h"
 
 #include "..\Utility\Random.h"
+#include "..\Utility\Clipboard.h"
 
 typedef Random::TypeSet TypeSet;
 
@@ -21,7 +22,11 @@ string Generator::GetPassword()
 {
 	list<TypeSet> typeSets{ Random::LowerTypeSet, Random::UpperTypeSet, Random::NumberTypeSet, Random::SymbolTypeSet };
 
-	return Random::RandomStringFromTypeSets(typeSets, 100);
+	string text = Random::RandomStringFromTypeSets(typeSets, 100);
+
+	Clipboard::FromString(text);
+
+	return text;
 }
 
 unsigned int Generator::GetEpochSeed()

@@ -153,10 +153,12 @@ copy /Y "$(TargetDir)$(ProjectName).obj" "C:\PassGen\$(ProjectName).obj"</Comman
   <ItemGroup>
     <ClCompile Include="Generator\Generator.cpp" />
     <ClCompile Include="PassGen.cpp" />
+    <ClCompile Include="Utility\Clipboard.cpp" />
     <ClCompile Include="Utility\Random.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Generator\Generator.h" />
+    <ClInclude Include="Utility\Clipboard.h" />
     <ClInclude Include="Utility\Random.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

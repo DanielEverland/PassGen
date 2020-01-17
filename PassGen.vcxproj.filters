@@ -30,12 +30,18 @@
     <ClCompile Include="Utility\Random.cpp">
       <Filter>Source Files\Utility</Filter>
     </ClCompile>
+    <ClCompile Include="Utility\Clipboard.cpp">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Generator\Generator.h">
       <Filter>Source Files\Generator</Filter>
     </ClInclude>
     <ClInclude Include="Utility\Random.h">
+      <Filter>Source Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility\Clipboard.h">
       <Filter>Source Files\Utility</Filter>
     </ClInclude>
   </ItemGroup>
